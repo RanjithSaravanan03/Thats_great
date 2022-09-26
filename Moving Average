@@ -1,0 +1,43 @@
+#Program to calculate moving average: 
+
+n=int(input("Enter no. of years : "))
+y=[]
+for i in range(n):
+  q=int(input("Enter y value : "))
+  y.append(q)
+print("\n")
+print("The y Values : ")
+print(y)
+print("\n")
+window_size = int(input("Enter __-Yearly Moving Average(in no.) : "))
+if(window_size%2)!=0:
+  i = 0
+  moving_averages = []
+  
+  while i < len(y) - window_size + 1:
+  	window = y[i : i + window_size]
+  	window_average = round(sum(window) / window_size, 2)
+  	moving_averages.append(window_average)
+  	i += 1
+  print("\n")
+  print("The Moving Average : ")
+  print(moving_averages)
+
+else:
+  i=0
+  w=[]
+  s=[]
+  while i < len(y) - window_size + 1:
+    window = y[i : i + window_size]
+    mt=sum(window)
+    w.append(mt)
+    i+=1
+    j=0
+  while j<len(w)-1:
+    series=w[j:j+2]
+    ma=round(((sum(series))/(window_size*2)),2)
+    s.append(ma)
+    j+=1
+  print("\n") 
+  print("The Centered Moving Average : ")
+  print(s)
